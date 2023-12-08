@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import Logo from 'assets/images/Logo_1.jpeg';
+import Logo from 'assets/images/cactusAI.png';
 import {View, Text, Image, StyleSheet, useWindowDimensions, ScrollView} from 'react-native';
-import CustomInput from 'components/CustomInput';
-import CustomButton from 'components/CustomButton';
+import CustomInput from '../../components/CustomInput';
+import CustomButton from '../../components/CustomButton';
+import SocialSignInButtons from '../../components/SocialSignInButtons';
 
 
-function SignInScreen() {
+const SignInScreen = () => {
     const[username, setUsername]= useState('');
     const[password, setPassword]= useState('');
     const { height } = useWindowDimensions();
@@ -16,19 +17,7 @@ function SignInScreen() {
     const onForgotPasswordPressed =() =>{
       console.warn('onForgotPasswordPressed');
     };
-
-    const onSignInFacebook = () => {
-      console.warn('onSignInFacebook');
-    };
-
-    const onSignInGoogle = () => {
-      console.warn('onSignInGoogle');
-    };
-
-    const onSignInApple = () => {
-      console.warn('onSignInApple');
-    };
-
+    
     const onSignUpPress = () => {
       console.warn('onSignUpPress');
     };
@@ -41,9 +30,7 @@ function SignInScreen() {
             <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry/>
             <CustomButton text="Sign In" onPress={onSignInPressed}/>
             <CustomButton text="Forgot password?" onPress={onForgotPasswordPressed} type="TERTIARY"/>
-            <CustomButton text="Sign In with Facebook" onPress={onSignInFacebook} bgColor="#E7EAF4" fgColor="#4765A9"/>
-            <CustomButton text="Sign In with Google" onPress={onSignInGoogle} bgColor="#FAE9EA" fgColor="DD4D44"/>
-            <CustomButton text="Sign In with Apple" onPress={onSignInApple} bgColor="#E3E3E3" fgColor="#363636"/> 
+            <SocialSignInButtons/>
             <CustomButton text="Don't have an account? Create one" onPress={onSignUpPress} type="TERTIARY"/>
         </View>
         </ScrollView>
